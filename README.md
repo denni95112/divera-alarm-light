@@ -3,6 +3,7 @@
 Das Divera Alarm Light lässt einen LED Ring im Alarmfall rot und blau leuchten. 
 
 ![image](Images/c3109c21-0d74-43f7-8a11-6a09f0127acb.001.jpeg) ![image](Images/c3109c21-0d74-43f7-8a11-6a09f0127acb.002.jpeg)
+![image](Images/alarm.gif)
 
 ## Teile 
 
