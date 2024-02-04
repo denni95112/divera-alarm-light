@@ -35,7 +35,7 @@ Löten Sie Leitungen für Vcc, GND und Data an die Input Pins des LED Rings.
 
 ![image](Images/c3109c21-0d74-43f7-8a11-6a09f0127acb.007.jpeg)
 
-Löten Sie die anderen Ender der Leitungen an den ESP, die Data Leitung (hier blau) wird an D2 gelötet. 
+Löten Sie die anderen Enden der Leitungen an den ESP, die Data Leitung (hier blau) wird an D2 gelötet. 
 
 ![image](Images/c3109c21-0d74-43f7-8a11-6a09f0127acb.008.jpeg) ![image](Images/c3109c21-0d74-43f7-8a11-6a09f0127acb.009.jpeg)
 
