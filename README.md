@@ -41,7 +41,9 @@ Löten Sie die anderen Enden der Leitungen an den ESP, die Data Leitung (hier bl
 
 Kleben Sie den LED Ring mit etwas Heißkleber im Gehäuse fest. Kleben Sie außerdem die USB C Buchse an die Rechte Seite des Gehäuses. Sie können des ESP ebenfalls festkleben, wenn Sie sich sicher sind, dass alles funktioniert. Ich empfehle diesen erst einmal mit etwas Klebeband zu fixieren und auf den ersten (Probe)Alarm zu warten, bevor der ESP mit Heißkleber fixiert wird.
 
-![image](Images/c3109c21-0d74-43f7-8a11-6a09f0127acb.010.jpeg) ![image](Images/c3109c21-0d74-43f7-8a11-6a09f0127acb.011.jpeg) Löten Sie Leitungen für VCC und GND an die USB C Buche und verbinden Sie diese mit den VCC und GND Pins des ESP. 
+![image](Images/c3109c21-0d74-43f7-8a11-6a09f0127acb.010.jpeg) ![image](Images/c3109c21-0d74-43f7-8a11-6a09f0127acb.011.jpeg) 
+
+Löten Sie Leitungen für VCC und GND an die USB C Buche und verbinden Sie diese mit den VCC und GND Pins des ESP. 
 
 ![image](Images/c3109c21-0d74-43f7-8a11-6a09f0127acb.012.jpeg) ![image](Images/c3109c21-0d74-43f7-8a11-6a09f0127acb.013.jpeg)
 
