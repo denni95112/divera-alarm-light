@@ -9,7 +9,7 @@
 
 const int eepromAddress = 0; // EEPROM address to store the API key
 char apiKey[65];
-
+int errorCounter = 0;
 #define DATA_PIN 4
 
 // Define the array of leds
@@ -33,6 +33,9 @@ void setup()
 
   WiFiManagerParameter customApiKey("api_key", "API Key", apiKey, 64);
   wm.addParameter(&customApiKey);
+
+  leds[0] = CRGB::Red;
+  show();
   
   if(!wm.autoConnect("Divera Alarm Light")){
     Serial.println("Failed to connect and hit timeout");
@@ -63,8 +66,10 @@ void loop() {
     alarm();
     //15 min delay
     delay(300000 * 3); 
+  }else{
+    
   }
-  delay(30000);
+  delay(10000);
 }
 
 void alarm(){
@@ -93,34 +98,28 @@ bool doRequest(){
   Serial.println((apiPath + apiKeyString).c_str());
   http.begin(*client, (apiPath + apiKeyString).c_str());
   int httpResponseCode = http.GET();
-      
+  Serial.print("HTTP Response code: ");
+  Serial.println(httpResponseCode);   
   if (httpResponseCode == HTTP_CODE_OK) {
-    Serial.print("HTTP Response code: ");
-    Serial.println(httpResponseCode);
+    errorCounter = 0;
     String payload = http.getString();
-    if(httpResponseCode != 200){
-      return false;
-    }
-    //Serial.println(payload);
-    if(payload.length() < 64){
-      return false;
-    }
-
-    if(payload.indexOf("\"closed\":false") > 0){
-      return true;
-    }
-    return false;
+    if(payload.length() >= 64 && payload.indexOf("\"closed\":false") > 0)
+      alarm = true;
   }
   else {
-    leds[0] = CRGB::Red;
-    show();
-    Serial.print("Error code: ");
-    Serial.println(httpResponseCode);
-    Serial.println("Resetting WiFi settings...");
-    wm.resetSettings();
-    delay(5000);
-    ESP.reset();
-    delay(5000);
+    Serial.println("Error");
+    errorCounter = errorCounter + 1;
+    if(errorCounter >= 30){
+      errorCounter = 0;
+      leds[0] = CRGB::Red;
+      show();
+      Serial.println("Resetting WiFi settings...");
+      wm.resetSettings();
+      delay(5000);
+      ESP.reset();
+      delay(5000);
+    }
+    delay(60 * 1000);
   }
   http.end();
   return alarm;
